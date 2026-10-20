@@ -5,10 +5,18 @@ export type Stay = {
   image: string;
   price: number;
   rating: string;
+  reviewCount: number;
+  host: { name: string; yearsHosting: number };
   favorite: boolean;
+  coordinates: { lat: number; lng: number };
 };
 
 export const cities = ["Viña del Mar", "Santiago", "Pucón"];
+const cityCenters = [
+  { lat: -33.0245, lng: -71.5518 },
+  { lat: -33.4489, lng: -70.6693 },
+  { lat: -39.282, lng: -71.9543 },
+];
 
 const photos = [
   "photo-1522708323590-d24dbb6b0267",
@@ -31,6 +39,12 @@ export const stays: Stay[] = cities.flatMap((city, cityIndex) =>
     image: `https://images.unsplash.com/${photos[(index + cityIndex * 3) % photos.length]}?auto=format&fit=crop&w=900&q=85`,
     price: [261050, 480157, 324900, 391500, 285300, 510800, 352000, 298700, 430200][index] - cityIndex * 27000,
     rating: ["4.9", "4.94", "4.98", "4.87", "4.95", "4.92", "4.99", "4.89", "4.96"][index],
+    reviewCount: [128, 86, 214, 57, 163, 94, 302, 41, 175][index] + cityIndex * 12,
+    host: { name: ["Catalina", "Felipe", "Camila"][cityIndex], yearsHosting: 4 + cityIndex },
     favorite: index !== 3 && index !== 7,
+    coordinates: {
+      lat: cityCenters[cityIndex].lat + (Math.floor(index / 3) - 1) * 0.006,
+      lng: cityCenters[cityIndex].lng + (index % 3 - 1) * 0.008,
+    },
   })),
 );

@@ -182,22 +182,11 @@ button { color: inherit; }
 .catalog-stay-info > p { margin-top: 4px; color: var(--muted); font-size: 11px; }
 .catalog-stay-info > .catalog-price { margin-top: 9px; }
 .catalog-price strong { color: var(--ink); text-decoration: underline; }
-.catalog-map { position: relative; grid-row: 1; display: grid; place-items: center; min-height: 260px; overflow: hidden; border-radius: 12px; background-color: #edf1eb; background-image: linear-gradient(31deg, transparent 47%, #fff 48%, #fff 50%, transparent 51%), linear-gradient(118deg, transparent 43%, #fff 44%, #fff 46%, transparent 47%), linear-gradient(90deg, #dfe8dc 1px, transparent 1px), linear-gradient(#dfe8dc 1px, transparent 1px); background-size: 230px 180px, 270px 220px, 58px 58px, 58px 58px; }
-.map-label { position: absolute; top: 16px; left: 16px; padding: 9px 12px; border-radius: 18px; background: white; box-shadow: 0 2px 9px #0002; font-size: 12px; font-weight: 600; }
-.map-road { position: absolute; width: 130%; height: 13px; border: 4px solid white; border-right: 0; border-left: 0; transform: rotate(-24deg); }
-.map-road-one { top: 30%; left: -12%; }
-.map-road-two { top: 62%; left: -8%; transform: rotate(18deg); }
-.map-road-three { top: 75%; left: 14%; transform: rotate(-53deg); }
-.map-marker { position: absolute; z-index: 1; color: var(--pink); filter: drop-shadow(0 2px 2px #0003); }
-.map-marker-0 { top: 23%; left: 24%; }
-.map-marker-1 { top: 39%; left: 65%; }
-.map-marker-2 { top: 53%; left: 45%; }
-.map-marker-3 { top: 69%; left: 73%; }
-.map-marker-4 { top: 77%; left: 31%; }
-.map-marker-5 { top: 36%; left: 39%; }
-.map-marker-6 { top: 60%; left: 18%; }
-.map-marker-7 { top: 17%; left: 77%; }
-.catalog-map > p { position: absolute; right: 12px; bottom: 8px; padding: 5px 8px; border-radius: 5px; background: #ffffffd9; color: var(--muted); font-size: 10px; }
+.catalog-map { position: relative; height: 320px; min-width: 0; overflow: hidden; border: 1px solid #dedede; border-radius: 8px; background: #ebebeb; color: var(--ink); }
+.catalog-map-message { position: absolute; inset: 0; display: grid; place-content: center; padding: 24px; text-align: center; font-size: 14px; }
+.catalog-map-info { max-width: 220px; line-height: 1.5; }
+.catalog-map-info p { margin: 6px 0; }
+.catalog-map-info a { text-decoration: underline; }
 .catalog-empty { grid-column: 1 / -1; display: grid; justify-items: center; gap: 10px; padding: 70px 15px; text-align: center; }
 .catalog-empty h2 { font-size: 20px; }
 .catalog-empty p { color: var(--muted); }
@@ -242,7 +231,7 @@ button { color: inherit; }
 	.catalog-stay-photo { border-radius: 13px; }
 	.catalog-stay-title h2 { font-size: 14px; }
 	.catalog-stay-info > p { font-size: 12px; }
-	.catalog-map { position: sticky; top: 16px; grid-row: auto; min-height: min(660px, calc(100vh - 32px)); border-radius: 14px; }
+	.catalog-map { position: sticky; top: 16px; grid-row: auto; height: min(660px, calc(100vh - 32px)); border-radius: 14px; }
 	.room-heading { padding: 24px 0 17px; }
 	.room-heading-meta { flex-wrap: nowrap; gap: 18px; }
 	.room-actions { width: auto; margin: 0 0 0 auto; }

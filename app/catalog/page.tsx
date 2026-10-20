@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { MapPin, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { stays } from "../stays";
-import { StayCard } from "../components/StayCard";
+import CatalogStayList from "./CatalogStayList";
+import CatalogMap from "./CatalogMap";
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
@@ -42,16 +43,8 @@ async function CatalogResults({ searchParams }: { searchParams: SearchParams }) 
         <p>{filteredStays.length} alojamientos{arrival && departure ? ` · ${arrival} – ${departure}` : ""}{guestCount ? ` · ${guestCount} huéspedes` : ""}{pets ? ` · ${pets} mascotas` : ""}</p>
       </section>
       <div className="catalog-layout">
-        <section className="catalog-grid" aria-label="Alojamientos disponibles">
-          {filteredStays.map((stay) => <StayCard key={stay.id} stay={stay} variant="catalog" />)}
-          {!filteredStays.length && <div className="catalog-empty"><MapPin size={35} /><h2>No encontramos alojamientos</h2><p>Prueba con Viña del Mar, Santiago o Pucón.</p><Link href="/">Volver a buscar</Link></div>}
-        </section>
-        <aside className="catalog-map" aria-label="Mapa ilustrativo de alojamientos">
-          <span className="map-label">Ubicaciones de muestra</span>
-          <div className="map-road map-road-one" /><div className="map-road map-road-two" /><div className="map-road map-road-three" />
-          {filteredStays.slice(0, 8).map((stay, index) => <span key={stay.id} className={`map-marker map-marker-${index}`} title={stay.city}><MapPin size={25} fill="currentColor" /></span>)}
-          <p>Mapa ilustrativo</p>
-        </aside>
+        <CatalogStayList items={filteredStays} />
+        <CatalogMap items={filteredStays} />
       </div>
     </main>
   );
