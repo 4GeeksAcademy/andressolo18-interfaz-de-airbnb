@@ -21,9 +21,9 @@ export default function CatalogStayList({ items }: { items: Stay[] }) {
         </select>
       </label>
     </header>
-    <div className="catalog-grid">
+    <div className="grid grid-cols-2 gap-x-[11px] gap-y-[17px] min-[900px]:gap-x-4 min-[900px]:gap-y-[22px]">
       {sortedStays.map((stay) => <StayCard key={stay.id} stay={stay} variant="catalog" />)}
-      {!items.length && <div className="catalog-empty"><MapPin size={35} /><h2>No encontramos alojamientos</h2><p>Prueba con Viña del Mar, Santiago o Pucón.</p><Link href="/">Volver a buscar</Link></div>}
+      {!items.length && <div className="col-span-full grid justify-items-center gap-[10px] px-[15px] py-[70px] text-center"><MapPin size={35} /><h2 className="text-xl">No encontramos alojamientos</h2><p className="text-[#6a6a6a]">Prueba con Viña del Mar, Santiago o Pucón.</p><Link className="mt-2 underline" href="/">Volver a buscar</Link></div>}
     </div>
   </section>;
 }
